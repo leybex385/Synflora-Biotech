@@ -287,6 +287,7 @@ import { motion, useScroll, useTransform, useInView, AnimatePresence } from "fra
             lab: "https://image.qwenlm.ai/public_source/8c6a869a-4e44-47ed-8062-46c5166f7291/1f9aea2ec-1193-425e-8b5c-d728cf3d2dbe.png",
             dna: "https://image.qwenlm.ai/public_source/8c6a869a-4e44-47ed-8062-46c5166f7291/1f6675d07-afb4-40d2-b5ed-a66c5a179ed1.png",
             founder: "Yang%20Man%20Ning.jpg",
+            victoria: "Victoria.jpg",
             headquarters: "https://image.qwenlm.ai/public_source/8c6a869a-4e44-47ed-8062-46c5166f7291/112900fbf-3874-44e7-a89b-4973bb0c8a34.png",
             team: "https://image.qwenlm.ai/public_source/8c6a869a-4e44-47ed-8062-46c5166f7291/1d36f2c0b-0bab-46bf-997a-8912872cee11.png",
             qualityControl: "https://image.qwenlm.ai/public_source/8c6a869a-4e44-47ed-8062-46c5166f7291/1ca3c02b8-d248-4bde-86e0-40d70d49b210.png",
@@ -2027,6 +2028,7 @@ import { motion, useScroll, useTransform, useInView, AnimatePresence } from "fra
             const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]);
 
             const [showProfile, setShowProfile] = useState(false);
+            const [showVictoriaProfile, setShowVictoriaProfile] = useState(false);
             const isInView = useInView(ref, { once: true, margin: "-100px" });
 
             const hubs = [
@@ -2212,6 +2214,82 @@ import { motion, useScroll, useTransform, useInView, AnimatePresence } from "fra
                                         </div>
                                     </div>
                                 </motion.div>
+                                                            {/* Victoria - Vice President */}
+                            <motion.div
+                                className="relative mt-10 rounded-[3rem] overflow-hidden border border-white/10 bg-[#0a0d14] shadow-[0_0_60px_rgba(0,0,0,0.4)] group"
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ duration: 1, delay: 1.2 }}
+                            >
+                                <div className="relative h-[420px] overflow-hidden">
+
+                                    <img
+                                        src={IMAGES.victoria}
+                                        alt="Victoria - Vice President"
+                                        className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                                    />
+
+                                    {/* Dark Gradient */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#020406] via-[#020406]/30 to-transparent"></div>
+
+                                    {/* Scan Line */}
+                                    <motion.div
+                                        className="absolute top-0 left-0 w-full h-[1px] bg-brand-primary/30 z-10"
+                                        animate={{ top: ['0%', '100%', '0%'] }}
+                                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                                    ></motion.div>
+
+                                    {/* Victoria Information */}
+                                    <div className="absolute bottom-8 left-8 right-8 z-20">
+
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <div className="w-8 h-[1px] bg-brand-primary"></div>
+
+                                            <span className="text-brand-primary text-[9px] font-bold uppercase tracking-[0.4em]">
+                                                Executive Leadership
+                                            </span>
+                                        </div>
+
+                                        <h3 className="text-white text-2xl font-display font-bold tracking-tight mb-2">
+                                            Victoria
+                                        </h3>
+
+                                        <p className="text-brand-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-3">
+                                            Vice President
+                                        </p>
+
+                                        <p className="text-white/60 text-xs leading-relaxed max-w-md">
+                                            Victoria supports Synflora Biotech's strategic operations,
+                                            institutional development, and global organizational initiatives,
+                                            helping strengthen operational infrastructure and long-term growth.
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                {/* Victoria Bottom Bar */}
+                                <div className="px-8 py-5 border-t border-white/5 bg-[#080a0f] flex items-center justify-between">
+
+                                    <div>
+                                        <span className="block text-[8px] text-gray-600 uppercase tracking-widest font-bold mb-1">
+                                            Directorate Tier
+                                        </span>
+
+                                        <span className="text-white font-mono text-[9px] tracking-widest">
+                                            VICE PRESIDENT • CLASS A2
+                                        </span>
+                                    </div>
+
+                                    <button
+                                        onClick={() => setShowVictoriaProfile(true)}
+                                        className="px-5 py-2.5 border border-brand-primary/30 text-brand-primary text-[8px] font-bold uppercase tracking-[0.3em] rounded-full hover:bg-brand-primary hover:text-black transition-all"
+                                    >
+                                        View Profile
+                                    </button>
+
+                                </div>
+                            </motion.div>    
+                                
                             </div>
 
                             {/* Kinetic Content Side */}
@@ -2412,6 +2490,186 @@ import { motion, useScroll, useTransform, useInView, AnimatePresence } from "fra
                                             <div className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></div>
                                         </div>
                                     </div>
+                                </motion.div>
+                            </div>
+                        )}
+                    </AnimatePresence>
+                                        {/* Victoria Executive Profile Modal */}
+                    <AnimatePresence>
+                        {showVictoriaProfile && (
+                            <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 md:p-8">
+
+                                {/* Background */}
+                                <motion.div
+                                    className="absolute inset-0 bg-black/95 backdrop-blur-2xl"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    onClick={() => setShowVictoriaProfile(false)}
+                                />
+
+                                {/* Modal */}
+                                <motion.div
+                                    className="relative w-full max-w-5xl bg-[#080a0f] border border-white/10 rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)]"
+                                    initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.95, y: 40 }}
+                                    transition={{ type: "spring", damping: 30, stiffness: 200 }}
+                                >
+
+                                    {/* Header */}
+                                    <div className="flex items-center justify-between px-8 md:px-16 py-10 border-b border-white/5 bg-[#0a0d14]">
+
+                                        <div>
+
+                                            <span className="text-brand-primary text-[10px] font-bold uppercase tracking-[0.5em] mb-3 block">
+                                                Executive Leadership Profile
+                                            </span>
+
+                                            <h3 className="text-white text-3xl md:text-4xl font-display font-light tracking-tight">
+                                                Victoria
+                                            </h3>
+
+                                            <p className="text-brand-primary text-xs uppercase tracking-[0.3em] mt-3">
+                                                Vice President
+                                            </p>
+
+                                        </div>
+
+                                        <button
+                                            onClick={() => setShowVictoriaProfile(false)}
+                                            className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-brand-primary/10 hover:border-brand-primary transition-all group"
+                                        >
+                                            <Icon name="X" className="w-6 h-6 group-hover:rotate-90 transition-transform duration-500" />
+                                        </button>
+
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="px-8 md:px-16 py-16 max-h-[75vh] overflow-y-auto custom-scrollbar">
+
+                                        <div className="grid lg:grid-cols-2 gap-16">
+
+                                            {/* Left */}
+                                            <div className="space-y-12">
+
+                                                <div className="relative pl-8">
+
+                                                    <div className="absolute top-0 left-0 w-1 h-12 bg-brand-primary"></div>
+
+                                                    <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-4">
+                                                        Strategic Role
+                                                    </h4>
+
+                                                    <p className="text-gray-400 text-lg leading-relaxed font-light">
+                                                        Victoria serves as Vice President of Synflora Biotech,
+                                                        supporting strategic operations, institutional development,
+                                                        organizational coordination, and long-term growth initiatives.
+                                                    </p>
+
+                                                </div>
+
+                                                <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
+
+                                                    <div>
+
+                                                        <span className="text-brand-primary font-mono text-[9px] uppercase font-bold block mb-2">
+                                                            Institutional Tier
+                                                        </span>
+
+                                                        <span className="text-white font-bold text-sm tracking-widest uppercase italic">
+                                                            Executive Level A2
+                                                        </span>
+
+                                                    </div>
+
+                                                    <div>
+
+                                                        <span className="text-brand-primary font-mono text-[9px] uppercase font-bold block mb-2">
+                                                            Operational Hub
+                                                        </span>
+
+                                                        <span className="text-white font-bold text-sm tracking-widest uppercase italic">
+                                                            New York • Global
+                                                        </span>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            {/* Right */}
+                                            <div>
+
+                                                <span className="text-brand-primary font-mono text-[9px] uppercase font-bold">
+                                                    Areas of Focus
+                                                </span>
+
+                                                <div className="mt-8 space-y-5">
+
+                                                    {[
+                                                        "Strategic Operations",
+                                                        "Institutional Development",
+                                                        "Global Coordination",
+                                                        "Organizational Strategy"
+                                                    ].map((item, index) => (
+
+                                                        <motion.div
+                                                            key={index}
+                                                            className="flex items-center gap-5 border-b border-white/5 pb-5"
+                                                            initial={{ opacity: 0, x: 20 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            transition={{ delay: 0.1 * index }}
+                                                        >
+
+                                                            <span className="text-brand-primary font-mono text-xs">
+                                                                0{index + 1}
+                                                            </span>
+
+                                                            <span className="text-gray-300 text-sm">
+                                                                {item}
+                                                            </span>
+
+                                                        </motion.div>
+
+                                                    ))}
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    {/* Footer */}
+                                    <div className="px-12 py-8 bg-[#0a0d14] border-t border-white/5 flex items-center justify-between">
+
+                                        <div>
+
+                                            <span className="text-[9px] text-gray-500 uppercase tracking-widest font-bold block mb-2">
+                                                Executive Classification
+                                            </span>
+
+                                            <span className="text-brand-primary font-mono text-[9px] tracking-widest">
+                                                VICTORIA • VP • CLASS A2
+                                            </span>
+
+                                        </div>
+
+                                        <div className="flex gap-4 items-center">
+
+                                            <span className="text-white/20 text-[9px] uppercase font-bold tracking-[0.3em]">
+                                                Institutional Verification
+                                            </span>
+
+                                            <div className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></div>
+
+                                        </div>
+
+                                    </div>
+
                                 </motion.div>
                             </div>
                         )}
