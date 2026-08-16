@@ -2221,12 +2221,12 @@ import { motion, useScroll, useTransform, useInView, AnimatePresence } from "fra
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 1, delay: 1.2 }}
                             >
-                                <div className="relative h-[420px] overflow-hidden">
+                                <div className="relative h-[380px] sm:h-[400px] md:h-[420px] overflow-hidden">
 
                                     <img
-                                        src={IMAGES.victoria}
-                                        alt="Victoria - Vice President"
-                                        className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                                src={IMAGES.victoria}
+                                alt="Victoria - Vice President"
+                                className="w-full h-full object-cover object-[center_15%] sm:object-[center_18%] md:object-[center_20%] grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                                     />
 
                                     {/* Dark Gradient */}
